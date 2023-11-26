@@ -3,3 +3,6 @@ body{
     flex-direction: column;
     align-items: center;
 }
+*{
+    background-color: antiquewhite;
+}
