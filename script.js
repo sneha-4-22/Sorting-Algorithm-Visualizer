@@ -18,12 +18,46 @@ for (let i = 0; i < array.length; i++) {
     cols[i] = new Column(x, y, width, height);
    
 }
+let moves=bubblesort(array);
 animate();
+function bubblesort(){
+    const moves=[];
+    do{
+        var swapped =false ;
+        for (let i=0;i<array.length;i++){
+            if(array[i-1]>array[i]){
+                swapped=true;
+                [array[i-1],array[i]]=[array[i],array[i-1]];
+                moves.push(
+                    {indices:[i-1,i],swap:true}
+                );
+
+            }else{
+                moves.push({
+                    indices:[i-1,i],swap:false
+                });
+            }
+        }
+    }while(swapped);
+    return moves;
+}
+
 function animate(){
     ctx.clearRect(0,0,mycanvas.width,mycanvas.height);
+    let changed =false;
     for(let i=0;i<cols.length;i++){
-        cols[i].draw(ctx);
+        changed=cols[i].draw(ctx)||changed;
+    }
+    if(!changed && moves.length>0){
+        const move =moves.shift();
+        const [i,j]=move.indices;
+        if(move.swap){
+            cols[i].moveTo(cols[j]);
+            cols[j].moveTo(cols[i]);
+            [cols[i],cols[j]]=[cols[j],cols[i]];
+        }else{
 
+        }
     }
     requestAnimationFrame(animate);
 }
