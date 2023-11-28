@@ -7,12 +7,13 @@ class Column {
         this.queue=[];
     }
 
-    moveTo(loc,frameCount=20){
+    moveTo(loc,yoffest=1,frameCount=20){
         for(let i=0;i<frameCount;i++){
             const t=i/frameCount;
+            const u=Math.sin(t*Math.PI);
             this.queue.push({
                 x:lerp(this.x,loc.x,t),
-                y:lerp(this.y,loc.y,t)
+                y:lerp(this.y,loc.y,t)+u*this.width/2*yoffest
             });
         }
     }

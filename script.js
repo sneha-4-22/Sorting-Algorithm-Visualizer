@@ -53,7 +53,7 @@ function animate(){
         const [i,j]=move.indices;
         if(move.swap){
             cols[i].moveTo(cols[j]);
-            cols[j].moveTo(cols[i]);
+            cols[j].moveTo(cols[i],-1);
             [cols[i],cols[j]]=[cols[j],cols[i]];
         }else{
 
