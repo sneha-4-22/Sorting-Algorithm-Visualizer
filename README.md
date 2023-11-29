@@ -1,6 +1,5 @@
 # Sorting Algorithm Visualizer
 
-https://sneha-4-22.github.io/Sorting-Algorithm-Visualizer/
 
 A web-based sorting algorithm visualizer implemented in JavaScript.
 
@@ -17,7 +16,7 @@ This project is a sorting algorithm visualizer that allows users to interactivel
 
 ## Demo
 
-Include a link or GIF demonstrating the visualizer in action.
+https://sneha-4-22.github.io/Sorting-Algorithm-Visualizer/
 
 ## Usage
 
