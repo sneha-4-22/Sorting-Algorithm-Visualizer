@@ -16,7 +16,7 @@ function init(){
     moves=[];
     for (let i = 0; i < array.length; i++) {
         const x = i * spacing + spacing / 2+margin;
-        const y = mycanvas.h-margin-i*3;
+        const y = mycanvas.height-margin-i*3;
         const width = spacing-4;
         const height = maxcolheight*array[i];
         cols[i] = new Column(x, y, width, height);
