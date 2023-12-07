@@ -3,22 +3,30 @@ mycanvas.height=300;
 const margin=30;
 const n = 20;
 const array = [];
-for (let i = 0; i < n; i++) {
-    array[i] = Math.random();
-}
+let moves =[];
+
 const cols = [];
 const spacing = (mycanvas.width-margin*2) / n;
 const ctx = mycanvas.getContext("2d");
 const maxcolheight=200;
-for (let i = 0; i < array.length; i++) {
-    const x = i * spacing + spacing / 2+margin;
-    const y = mycanvas.height-margin-i*3;
-    const width = spacing-4;
-    const height = maxcolheight*array[i];
-    cols[i] = new Column(x, y, width, height);
-   
+function init(){
+    for (let i = 0; i < n; i++) {
+        array[i] = Math.random();
+    }
+    moves=[];
+    for (let i = 0; i < array.length; i++) {
+        const x = i * spacing + spacing / 2+margin;
+        const y = mycanvas.height-margin-i*3;
+        const width = spacing-4;
+        const height = maxcolheight*array[i];
+        cols[i] = new Column(x, y, width, height);
+       
+    }
 }
-let moves=bubblesort(array);
+function play(){
+    moves=bubblesort(array);
+}
+
 animate();
 function bubblesort(){
     const moves=[];
@@ -56,8 +64,7 @@ function animate(){
             cols[j].moveTo(cols[i],-1);
             [cols[i],cols[j]]=[cols[j],cols[i]];
         }else{
-            cols[i].jump();
-            cols[j].jump();
+
         }
     }
     requestAnimationFrame(animate);
